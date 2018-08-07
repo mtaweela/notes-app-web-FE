@@ -1,40 +1,46 @@
-<button type="button" class="btn btn-primary btn-lg btn-block" (click)="addTodo()">Add Todo</button>
-<br>
+<div>
+  <div class="row">
+    <div class="container content col-lg-9">
+      <button type="button" class="btn btn-info btn-lg btn-block" (click)="addTodo()">Add New Todo</button>
+      <br>
 
-<div *ngIf="uncompletedTodos">
-  <h3>Un-Completed Todos</h3>
-  <div *ngFor="let todo of uncompletedTodos">
-    <div class="card">
-      <div *ngIf="!todo.completed">
-        <h5 class="card-header">{{todo.title}}</h5>
-        <div class="card-body">
-          <p class="card-text">{{todo.text}}</p>
-          <button type="button" class="btn btn-primary" (click)="completeTodo(todo._id, true)">&#10004; Completed</button>
-          <button type="button" class="btn btn-success" (click)="editTodo(todo._id)">Edit</button>
-          <button type="button" class="btn btn-danger" (click)="removeTodo(todo._id)">&#10006; Remove</button>
+      <div *ngIf="uncompletedTodos">
+        <h3 *ngIf="!(uncompletedTodos.length === 0)">In-Completed Todos</h3>
+        <div *ngFor="let todo of uncompletedTodos">
+          <div class="card">
+            <div *ngIf="!todo.completed">
+              <h5 class="card-header">{{todo.title}}</h5>
+              <div class="card-body">
+                <p class="card-text">{{todo.text}}</p>
+                <button type="button" class="btn btn-primary" (click)="completeTodo(todo._id, true)">&#10004; Completed</button>
+                <button type="button" class="btn btn-success" (click)="editTodo(todo._id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="removeTodo(todo._id)">&#10006; Remove</button>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+
+      </div>
+
+      <div *ngIf="completedTodos">
+        <h3>Completed Todos</h3>
+        <div *ngFor="let todo of completedTodos">
+          <div class="card">
+            <div *ngIf="todo.completed">
+              <h5 class="card-header">{{todo.title}}</h5>
+              <div class="card-body">
+                <h5 class="card-title">Completed At: {{getDate(todo.completedAt)}}</h5>
+                <p class="card-text">{{todo.text}}</p>
+                <button type="button" class="btn btn-warning" (click)="completeTodo(todo._id, false)">&#10006; InCompleted</button>
+                <button type="button" class="btn btn-success" (click)="editTodo(todo._id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="removeTodo(todo._id)">&#10006; Remove</button>
+              </div>
+            </div>
+          </div>
+          <br>
         </div>
       </div>
     </div>
-    <br>
-  </div>
-
-</div>
-
-<div *ngIf="completedTodos">
-  <h3>Completed Todos</h3>
-  <div *ngFor="let todo of completedTodos">
-    <div class="card">
-      <div *ngIf="todo.completed">
-        <h5 class="card-header">{{todo.title}}</h5>
-        <div class="card-body">
-          <h5 class="card-title">Completed At: {{getDate(todo.completedAt)}}</h5>
-          <p class="card-text">{{todo.text}}</p>
-          <button type="button" class="btn btn-warning" (click)="completeTodo(todo._id, false)">&#10006; Un Completed</button>
-          <button type="button" class="btn btn-success" (click)="editTodo(todo._id)">Edit</button>
-          <button type="button" class="btn btn-danger" (click)="removeTodo(todo._id)">&#10006; Remove</button>
-        </div>
-      </div>
-    </div>
-    <br>
   </div>
 </div>

@@ -1,3 +1,70 @@
-<p>
-  edittodo works!
-</p>
+<div class="container" *ngIf="EditTodoForm">
+    <div class="row my-2">
+      <div class="col-lg-8 order-lg-2">
+        <h5 class="mb-3">Edit TODO</h5>
+        <form role="form" [formGroup]="EditTodoForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+              <label
+                class="col-lg-3 col-form-label form-control-label"
+                for="title">
+                Todo Title: 
+              </label>
+              <div class="col-lg-9">
+                <input
+                  id="title"
+                  name="title"
+                  placeholder="enter your Todo Title"
+                  class="form-control"
+                  type="text"
+                  formControlName="title"
+                >
+                <div
+                class="alert alert-danger"
+                *ngIf="!EditTodoForm.get('title').valid && EditTodoForm.get('title').touched">
+                  <strong>Error!</strong> Please enter Todo Title
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  class="col-lg-3 col-form-label form-control-label"
+                  for="text">
+                  Todo Content:
+                </label>
+                <div class="col-lg-9">
+                  <input
+                    id="text"
+                    name="text"
+                    placeholder="enter your Todo Content"
+                    class="form-control"
+                    type="text"
+                    formControlName="text"
+                  >
+                  <div
+                  class="alert alert-danger"
+                  *ngIf="!EditTodoForm.get('text').valid && EditTodoForm.get('text').touched">
+                    <strong>Error!</strong> Please enter Todo content
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label
+                    class="col-lg-3 col-form-label form-control-label">
+                  </label>
+                  <div class="col-lg-9">
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Edit Todo"
+                    >
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="!EditTodoForm.valid && EditTodoForm.touched">
+                      Please fill all the fields
+                    </div>  
+                  </div>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>

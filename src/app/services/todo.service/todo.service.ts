@@ -17,15 +17,15 @@ export class TodoService {
     private http: HttpClient,
   ) { }
 
-  addTodo(todoData) {
+  addTodo(todo) {
     // const headers = new HttpHeaders({ 'x-auth': localStorage.getItem('id_token')});
-    return this.http.post<any>( this.todosUrl, todoData);
+    return this.http.post<any>( this.todosUrl, todo);
   }
 
   getTodo(todoId) {
     // const headers = new HttpHeaders({ 'x-auth': localStorage.getItem('id_token')});
     return this.http.get<any>(
-      this.todosUrl
+      this.todosUrl + '/' + todoId
     );
   }
 
