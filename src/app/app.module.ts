@@ -16,6 +16,8 @@ import { SignupComponent } from './views/user/signup/signup.component';
 import { ViewprofileComponent } from './views/user/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './views/user/editprofile/editprofile.component';
 import { TodoService } from './services/todo.service/todo.service';
+import { EdittodoComponent } from './views/dashboard/edittodo/edittodo.component';
+import { AddtodoComponent } from './views/dashboard/addtodo/addtodo.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { TodoService } from './services/todo.service/todo.service';
     LoginComponent,
     SignupComponent,
     ViewprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    EdittodoComponent,
+    AddtodoComponent
   ],
   imports: [
     BrowserModule,

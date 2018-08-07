@@ -7,6 +7,8 @@ import { SignupComponent } from './views/user/signup/signup.component';
 import { LoginComponent } from './views/user/login/login.component';
 import { ViewprofileComponent } from './views/user/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './views/user/editprofile/editprofile.component';
+import { EdittodoComponent } from './views/dashboard/edittodo/edittodo.component';
+import { AddtodoComponent } from './views/dashboard/addtodo/addtodo.component';
 
 const routes: Routes = [
   {
@@ -30,8 +32,16 @@ const routes: Routes = [
     component: EditprofileComponent
   },
   {
-    path: 'dashboard',
+    path: 'todos',
     component: DashboardComponent
+  },
+  {
+    path: 'add-todo',
+    component: AddtodoComponent
+  },
+  {
+    path: 'edit-todo/:id',
+    component: EdittodoComponent
   },
   {
     path: '**',

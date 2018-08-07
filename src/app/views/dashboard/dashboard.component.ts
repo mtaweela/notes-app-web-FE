@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './../../services/todo.service/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,8 @@ export class DashboardComponent implements OnInit {
   date = new Date;
 
   constructor(
-    private todoService: TodoService
+    private todoService: TodoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,8 +39,12 @@ export class DashboardComponent implements OnInit {
       });
   }
 
+  addTodo() {
+    this.router.navigate(['/add-todo']);
+  }
+
   editTodo(id) {
-    console.log(`edit todo ${id}`);
+    this.router.navigate([`/edit-todo/${id}`]);
   }
 
   removeTodo(id) {

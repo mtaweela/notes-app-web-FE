@@ -1,9 +1,12 @@
+<button type="button" class="btn btn-primary btn-lg btn-block" (click)="addTodo()">Add Todo</button>
+<br>
+
 <div *ngIf="uncompletedTodos">
   <h3>Un-Completed Todos</h3>
-  <div *ngFor="let todo of uncompletedTodos, let i=index">
+  <div *ngFor="let todo of uncompletedTodos">
     <div class="card">
       <div *ngIf="!todo.completed">
-        <h5 class="card-header">Todo {{i}}</h5>
+        <h5 class="card-header">{{todo.title}}</h5>
         <div class="card-body">
           <p class="card-text">{{todo.text}}</p>
           <button type="button" class="btn btn-primary" (click)="completeTodo(todo._id, true)">&#10004; Completed</button>
@@ -19,10 +22,10 @@
 
 <div *ngIf="completedTodos">
   <h3>Completed Todos</h3>
-  <div *ngFor="let todo of completedTodos, let i=index">
+  <div *ngFor="let todo of completedTodos">
     <div class="card">
       <div *ngIf="todo.completed">
-        <h5 class="card-header">Todo {{i}}</h5>
+        <h5 class="card-header">{{todo.title}}</h5>
         <div class="card-body">
           <h5 class="card-title">Completed At: {{getDate(todo.completedAt)}}</h5>
           <p class="card-text">{{todo.text}}</p>
