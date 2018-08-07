@@ -15,6 +15,7 @@ import { LoginComponent } from './views/user/login/login.component';
 import { SignupComponent } from './views/user/signup/signup.component';
 import { ViewprofileComponent } from './views/user/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './views/user/editprofile/editprofile.component';
+import { TodoService } from './services/todo.service/todo.service';
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import { EditprofileComponent } from './views/user/editprofile/editprofile.compo
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
